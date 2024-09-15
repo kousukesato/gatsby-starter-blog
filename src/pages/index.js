@@ -25,19 +25,12 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Bio />
-      <div style={{ 
-        display: 'flex', 
-        flexWrap: 'wrap', 
-        justifyContent: 'space-between' 
-      }}>
+      <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
 
           return (
-            <div key={post.fields.slug} style={{ 
-              width: 'calc(33.333% - 20px)', 
-              marginBottom: '30px' 
-            }}>
+            <li key={post.fields.slug}>
               <article
                 className="post-list-item"
                 itemScope
@@ -60,10 +53,10 @@ const BlogIndex = ({ data, location }) => {
                   />
                 </section>
               </article>
-            </div>
+            </li>
           )
         })}
-      </div>
+      </ol>
     </Layout>
   )
 }
